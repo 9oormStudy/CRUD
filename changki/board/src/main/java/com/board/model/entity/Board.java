@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Where(clause = "board_status='ACTIVE'")
+//update
 @SQLDelete(sql = "UPDATE board SET board_status='DELETE' WHERE board_no=?")
 public class Board {
 

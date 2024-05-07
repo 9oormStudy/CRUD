@@ -7,6 +7,7 @@ import hello.crudpj.repository.BoardRepository;
 import hello.crudpj.repository.BoardRepositoryCustom;
 import hello.crudpj.model.entity.Comment;
 import hello.crudpj.repository.CommentRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional // 영속성 컨텍스트 관리
 public class BoardService {
 
     private final BoardRepository boardRepository;

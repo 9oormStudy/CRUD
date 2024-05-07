@@ -8,7 +8,7 @@ import hello.crudpj.repository.CommentRepository;
 import hello.crudpj.repository.CommentRepositoryCustom;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import jakarta.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor

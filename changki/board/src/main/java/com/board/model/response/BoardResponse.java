@@ -16,7 +16,6 @@ public class BoardResponse {
     private String body;
     private BoardStatus boardStatus;
 
-
     static public BoardResponse from(Board board) {
         return new BoardResponse(
                 board.getBoardNo(),

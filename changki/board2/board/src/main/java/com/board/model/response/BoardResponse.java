@@ -5,6 +5,8 @@ import com.board.model.entity.BoardStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 public class BoardResponse {
@@ -12,6 +14,8 @@ public class BoardResponse {
     private String title;
     private String body;
     private BoardStatus boardStatus;
+//    private List<CommentResponse> comments;
+
 
 /*    public BoardResponse(Board board) {
         this.boardId = board.getBoardId();
@@ -30,6 +34,7 @@ public class BoardResponse {
                 board.getTitle(),
                 board.getBody(),
                 board.getBoardStatus()
+//                board.getComments().stream().map
         );
     }
 

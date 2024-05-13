@@ -14,6 +14,7 @@ import java.util.List;
 public class BoardService {
     private final BoardRepository boardRepository;
 
+    //게시글 작성
     public BoardResponse boardWrite(String title, String body) {
         Board board = new Board();
         board.setTitle(title);
@@ -23,6 +24,7 @@ public class BoardService {
         return BoardResponse.changeBoardResponse(boardRepository.save(board));
     }
 
+    //게시글 작성
     public BoardResponse boardEdit(Long boardId, String body) {
         return boardRepository.findById(boardId)
                 .map(board -> {
@@ -33,15 +35,26 @@ public class BoardService {
                 .orElseThrow(() -> new RuntimeException("존재하지 않는 게시글 입니다."));
     }
 
+    //단건 조회
     public BoardResponse boardGet(Long boardId) {
         return boardRepository.findById(boardId)
                 .map(BoardResponse::changeBoardResponse)
                 .orElseThrow(() -> new RuntimeException("존재하지 않는 게시글 입니다."));
     }
 
+    //리스트 조회
     public List<BoardResponse> boardGetList() {
         return boardRepository.findAll()
                 .stream().map(BoardResponse::changeBoardResponse)
                 .toList();
+    }
+
+    //삭제
+    public BoardResponse boardDelete(Long boardId) {
+        return boardRepository.findById(boardId)
+                .map(board -> {
+                    board.setBoardStatus(BoardStatus.DELETED);
+                    return BoardResponse.changeBoardResponse(board);
+                }).orElseThrow(() -> new RuntimeException("존재하지 않는 게시글 입니다."));
     }
 }

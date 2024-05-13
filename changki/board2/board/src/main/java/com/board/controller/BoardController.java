@@ -35,4 +35,10 @@ public class BoardController {
     public List<BoardResponse> boardGetList() {
         return boardService.boardGetList();
     }
+
+    @DeleteMapping("board")
+    public BoardResponse boardDelete(@RequestParam Long boardId) {
+        return boardService.boardDelete(boardId);
+
+    }
 }
